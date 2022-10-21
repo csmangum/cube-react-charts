@@ -9,6 +9,7 @@ import {
   Line,
   ResponsiveContainer,
 } from "recharts";
+import { Grid } from "@mui/material";
 
 const RechartLineChart = () => {
   const { resultSet, isLoading, error, progress } = useCubeQuery({
@@ -33,8 +34,8 @@ const RechartLineChart = () => {
   }
 
   return (
-    <div>
-      <ResponsiveContainer width="100%" height={350}>
+      <Grid alignItems="center" container spacing={0} display="flex" justifyContent="center" direction="column">
+      <ResponsiveContainer width="50%" height={350}>
         <LineChart data={resultSet.series()[0].series}>
           <CartesianGrid strokeDasharray="5 5" />
           <XAxis dataKey="x"></XAxis>
@@ -44,7 +45,7 @@ const RechartLineChart = () => {
           <Line name="DooderCount" dataKey="value" fill="#8884d8" />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+      </Grid>
   );
 };
 
